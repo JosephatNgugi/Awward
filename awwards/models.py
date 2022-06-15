@@ -50,3 +50,22 @@ class Project(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     date_added = models.DateTimeField(default=timezone.now)
     
+    def save_project(self):
+        self.save()
+    
+    def delete_project(self):
+        self.delete()
+        
+    @classmethod
+    def all_projects(cls):
+        return cls.objects.all()
+         
+
+    @classmethod
+    def search_projects(cls, search_term):
+        return cls.objects.filter(title__icontains=search_term).all()
+         
+    
+    def __str__(self):
+        return f'{self.title} Project'
+

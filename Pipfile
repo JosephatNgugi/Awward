@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+cloudinary = "*"
+django-cloudinary-storage = "*"
+django-registration-redux = "*"
+django-bootstrap5 = "*"
+django-crispy-forms = "*"
+psycopg2 = "*"
+python-dotenv = "*"
+dj-database-url = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

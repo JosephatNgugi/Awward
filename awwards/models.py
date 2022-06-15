@@ -33,3 +33,12 @@ class Profile(models.Model):
         """
         if created:
             Profile.objects.create(user=instance)
+        
+    @receiver(post_save, sender=user)
+    def save_user_profile(sender, instance, **kwargs):
+        """This method will save the userprofile instance created"""
+        instance.Profile.save
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+

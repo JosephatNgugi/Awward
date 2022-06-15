@@ -90,3 +90,12 @@ class Review(models.Model):
     usability = models.PositiveSmallIntegerField(choices = userRatings, default = 0)
     content = models.PositiveSmallIntegerField(choices = userRatings, default = 0)
     
+    def save_review(self):
+        self.save()
+
+    @classmethod
+    def get_review(cls, id):
+        return Review.objects.filter(post_id=id).all()
+         
+    def __str__(self):
+        return f'{self.review} Review'

@@ -42,3 +42,11 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+class Project(models.Model):
+    title = models.CharField(max_length=255)
+    link = models.URLField()
+    screenshot = CloudinaryField('images')
+    description = models.TextField()
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(default=timezone.now)
+    

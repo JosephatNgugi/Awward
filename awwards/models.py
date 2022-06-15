@@ -69,3 +69,24 @@ class Project(models.Model):
     def __str__(self):
         return f'{self.title} Project'
 
+class Review(models.Model):
+    userRatings = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+    )
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
+    projects = models.ForeignKey(Project,on_delete = models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    review = models.TextField(max_length=1500,blank=True)
+    design = models.PositiveSmallIntegerField(choices = userRatings, default= 0)
+    usability = models.PositiveSmallIntegerField(choices = userRatings, default = 0)
+    content = models.PositiveSmallIntegerField(choices = userRatings, default = 0)
+    

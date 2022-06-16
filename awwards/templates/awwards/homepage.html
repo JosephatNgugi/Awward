@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block content %}
+<!-- project section -->
+<div class="container-fluid">
+    <div class="mb-2 pb-2 pl-4 pr-2 ml-4 mr-1">
+        <h4 class="display-35 font-weight-bold"> Sites of the day</h4>:
+    </div>
+    <div class="row">
+
+        {% for project in projects %}
+
+        <div class="col-md-4">
+            <div class="card-deck">
+                <div class="card mb-2 mt-2 ">
+                    <!-- Card image -->
+                    <div class="view overlay zoom image2">
+                        {% if project.project_image %}
+                        <a href="/project/{{project.id}}">
+                            <img class="card-img-top" src="{{project.project_image.url}}"
+                            alt="{{ project.project_name }}" height="300px" width="320">
+                        </a>
+                        {% else %}
+                        <a href="/project/{{project.id}}">
+                            <img class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation"
+                                alt="{{ project.project_name }}">
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="card-body pr-2 pl-2 pr-2 mr-2">
+                        <h5 class="card-title ml-4">{{ project.project_title }}</h5>
+                        <div class="row ml-2">
+                            <div class="col-lg-6 dark-text">
+                                <small class="text-muted ml-2">
+                                    <img src="{{ project.Author.profile.photo.url }}" 
+                                    class="rounded-circle img-fluid mr-1" style="width: 30px;">
+                                    posted By: {{project.author|upper}}
+                                </small>
+                            </div>
+                            <div class="col-lg-6 dark-text d-flex justify-content-end">
+                                <small>{{project.pub_date|date:"d /m/Y"}} </small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of card deck  -->
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

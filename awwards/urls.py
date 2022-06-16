@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.homepage, name='home'),
+    path('accounts/Sign-Up/', views.UserRegistration, name='signup'),
     path('new/project', views.add_project, name='addProject'),
 ]
 if settings.DEBUG:

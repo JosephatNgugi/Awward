@@ -8,11 +8,11 @@ django = "*"
 cloudinary = "*"
 django-cloudinary-storage = "*"
 django-registration-redux = "*"
-django-bootstrap5 = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
 python-dotenv = "*"
 dj-database-url = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 

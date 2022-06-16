@@ -1,0 +1,47 @@
+{% load bootstrap4 %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>New Project - Awwards</title>
+
+    {% block styles %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="display-5 text-center font-weight-bold">SHARE YOUR SITE</h2>
+
+
+        <div class="row">
+            <!-- Empty div -->
+            <div class="col-lg-3 col-md-4"></div>
+
+            <div class="col-lg-6 pt-2 col-md-4 ">
+                <form action="{%url 'addProject'%}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+
+                    {% bootstrap_form form%}
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-info btn-md font-weight-bold" value="SUBMIT">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-3 col-md-4"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

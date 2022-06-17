@@ -13,7 +13,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, default="My Bio", blank=True)
     name = models.CharField(max_length=120)
     location = models.CharField(max_length=60, blank=True)
-    contact = models.EmailField(max_length=100, blank=True)
+    contact = models.CharField(max_length=12,blank=True)
     joined = models.DateTimeField(default=timezone.now)
 
     @classmethod

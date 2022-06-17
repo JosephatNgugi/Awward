@@ -47,7 +47,7 @@ class Project(models.Model):
     link = models.URLField()
     screenshot = CloudinaryField('images')
     description = models.TextField()
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True)
     date_added = models.DateTimeField(default=timezone.now)
     
     def save_project(self):

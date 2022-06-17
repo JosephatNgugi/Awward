@@ -49,11 +49,31 @@ def add_project(request):
     if request.method == 'POST':
         form = AddProjectForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=False)
-            form.author = current_user
-            form.save()
+            newProject = form.save(commit=False)
+            newProject.user = current_user
+            newProject.save()
         return redirect('home')
 
     else:
         form = AddProjectForm()
     return render(request, 'awwards/add-project.html', {"form":form})
+
+def projects(request,id):
+    projects = Project.objects.get(id = id)
+    return render(request,'awwards/project-details.html',{"projects":projects})
+
+@login_required(login_url='login')   
+def ratings(request,id):
+    project = Project.objects.get(id = id)
+    user = request.user
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.user = user
+            rate.projects = project
+            rate.save()
+            return redirect('home')
+    else:
+        form = RatingForm()
+    return render(request,"awwards/project-rating.html",{"form":form,"project":project})        

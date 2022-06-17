@@ -29,3 +29,8 @@ class AddProjectForm(forms.ModelForm):
         fields = ('title', 'link', 'screenshot', 'description')
         widgets = {'description': forms.Textarea(attrs={'rows':4, 'cols':7,}),
         }
+        
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['review','design','usability','content']

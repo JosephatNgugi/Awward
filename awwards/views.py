@@ -28,6 +28,7 @@ def UserRegistration(request):
         form = SignUpForm()
     return render(request, 'registration/registration_form.html', {'form': form})
 
+@login_required(login_url='/accounts/login/')
 def profile(request,id):
     profile = Profile.objects.get(user = id)
     return render(request, 'user/profile.html', {"profile":profile})

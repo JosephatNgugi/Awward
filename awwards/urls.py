@@ -12,7 +12,10 @@ urlpatterns = [
     path('newproject', views.add_project, name='addProject'),
     path('projects/<id>/',views.projects,name = 'projects'),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
-    path('rate/<id>/',views.ratings,name = 'rate')
+    path('rate/<id>/',views.ratings,name = 'rate'),
+    path('api/projects/', views.ProjectList.as_view()),
+    path('api/profile/', views.ProfileList.as_view()),
+
 
 ]
 if settings.DEBUG:

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a3e8021b96746f32c911e1095de1ad72dcb62556229523cb34d1af70bc87871b"
+            "sha256": "dc349d8418bbeb7225449e2b02901fc6ecdfe7ce4e1c46e65636f968aebf149e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -97,6 +97,13 @@
             "index": "pypi",
             "version": "==22.1"
         },
+        "django-braces": {
+            "hashes": [
+                "sha256:28f00b0f98368c9a37f30cce6087fc57127f0a24c5b8b449f9e1245bded6405d",
+                "sha256:f451d08ffc1078d81209a2e17f2219bce20196928853c82405451b18a46875e0"
+            ],
+            "version": "==1.15.0"
+        },
         "django-cloudinary-storage": {
             "hashes": [
                 "sha256:95c855c7334141b2a485ea7eb5716de87bb6ce0d848e205debb3a3ab7bbbd49a",
@@ -113,6 +120,13 @@
             "index": "pypi",
             "version": "==1.14.0"
         },
+        "django-model-utils": {
+            "hashes": [
+                "sha256:a768a25c80514e0ad4e4a6f9c02c44498985f36c5dfdea47b5b1e8cf994beba6",
+                "sha256:e7a95e102f9c9653427eadab980d5d59e1dea972913b9c9e01ac37f86bba0ddf"
+            ],
+            "version": "==4.2.0"
+        },
         "django-registration-redux": {
             "hashes": [
                 "sha256:de25c3ae04ec466edc8a41e03d7ff817fdb996ffd00333550b9c4b960593fdff",
@@ -120,6 +134,14 @@
             ],
             "index": "pypi",
             "version": "==2.10"
+        },
+        "django-star-ratings": {
+            "hashes": [
+                "sha256:7c7f55c1847087b932ca09c2cefb11240510fe384188250d15961024c9c8f2d8",
+                "sha256:8789275e11612295379cf5db7aafce43e2cf6d9aea63f4ba762220fe440997f3"
+            ],
+            "index": "pypi",
+            "version": "==0.9.2"
         },
         "idna": {
             "hashes": [
@@ -180,6 +202,13 @@
                 "sha256:48719e356bb8b42991bdbb1e8b83223757b93789c00910a616a071910ca4a64d"
             ],
             "version": "==0.4.2"
+        },
+        "swapper": {
+            "hashes": [
+                "sha256:48a814f67be1abefe6c1495013808d1ff8e6b294f78384c88f5a93b81f7015fd",
+                "sha256:5d7667c0bfcd2f27e10c77d8096925eb547764d7b9ff4824430aa9b3c63b7aa0"
+            ],
+            "version": "==1.3.0"
         },
         "urllib3": {
             "hashes": [

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import *
@@ -22,6 +22,26 @@ def UserRegistration(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/registration_form.html', {'form': form})
+
+def profile(request,id):
+    profile = Profile.objects.get(user = id)
+    return render(request, 'user/profile.html', {"profile":profile})
+
+@login_required(login_url='login')
+def edit_profile(request):
+    user= request.user
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        prof_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and prof_form.is_valid():
+            user_form.save()
+            prof_form.save()
+            return redirect('profile', user.id)
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        prof_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'user/edit-profile.html', {'user_form': user_form, 'prof_form':prof_form})
+
 
 @login_required(login_url='/accounts/login/')
 def add_project(request):

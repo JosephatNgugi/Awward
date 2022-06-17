@@ -14,6 +14,9 @@ python-dotenv = "*"
 dj-database-url = "*"
 django-bootstrap4 = "*"
 django-star-ratings = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-heroku = "*"
 
 [dev-packages]
 

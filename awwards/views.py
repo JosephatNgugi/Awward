@@ -1,8 +1,13 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import *
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .forms import *
+from .models import *
+from .serializer import *
+
 
 # Create your views here.
 def homepage(request):
@@ -77,3 +82,9 @@ def ratings(request,id):
     else:
         form = RatingForm()
     return render(request,"awwards/project-rating.html",{"form":form,"project":project})        
+
+class ProfileList(APIView):
+    def get(self,request,format = None):
+        all_profile = Profile.objects.all()
+        serializerdata = ProfileSerializer(all_profile,many = True)
+        return Response(serializerdata.data)

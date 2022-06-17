@@ -17,6 +17,7 @@ django-star-ratings = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
